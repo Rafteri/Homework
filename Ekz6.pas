@@ -1,4 +1,4 @@
-program Ekz4;
+program Ekz5;
 
 const
   n = 2;
