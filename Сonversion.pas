@@ -22,17 +22,8 @@ begin
   exp := 1;
   for i := n - 1 downto 0 do
   begin
-    if conversion(a[i]) = -1 
-    then
-    begin
-      converting := -1;
-      break;
-    end
-    else
-    begin
-      x := x + conversion(a[i]) * exp;
-      exp := exp * 10;
-    end;
+    x := x + conversion(a[i]) * exp;
+    exp := exp * 10;
   end;
   converting := x;
 end;
