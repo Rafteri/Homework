@@ -1,53 +1,64 @@
 program Ekz4;
 
 const
-  n = 2;
-
-type
-  matrix = array[1..n, 1..n] of integer;
-
-var
-  a: matrix;
-
+  n = 4;
+  m = 3;
+  
+type    
+  matrix = array[1..m, 1..n] of real;
+  
+var   
+  a, b: matrix;
+  
 procedure ReadMatrix();
-var
+var 
   i, j: integer;
 begin
-  for i := 1 to n do
-    for j := 1 to n do
-      readln(a[i, j]);
+  for i := 1 to m do    
+        for j := 1 to n do 
+      read(a[i, j]);
 end;
 
-procedure Magicbox(a: matrix);
-var
-  i, j, k, line, column: integer;
-  magic: boolean;
+procedure SaddleFounding(a, b: matrix);
+var 
+  i, j: integer; 
+  lmin, lmax, cmin, cmax: real;
 begin
-  for i := 1 to n do 
-  begin
-    for j := 1 to n do 
+    for i := 1 to n do 
     begin
-      if (a[i, j] < n + 1) and (a[i, j] > 0) then 
-      begin
-        line := 0;column := 0;
-        for k := 1 to n do 
-        begin
-          line := line + a[k, j];
-          column := column + a[i, k];
-        end; 
-        if line = column then magic := true
-        else  magic := false;       
-      end
-      else magic := false;         
-      if magic = false then break;
-    end;   
-    if magic = false then break;
+    cmin := a[1, i];cmax := cmin;
+    for j := 2 to m do 
+    begin
+      if a[j, i] < cmin then cmin := a[j, i];
+      if a[j, i] > cmax then cmax := a[j, i];
+    end; 
+    for j := 1 to m do   
+    begin
+      if a[j, i] = cmin then b[j, i] := b[j, i] + 1;
+      if a[j, i] = cmax then b[j, i] := b[j, i] - 3;
+    end;
   end;
-  if magic = true then writeln('It is magic box')
-  else writeln('It is not magic box');
+  for i := 1 to m do 
+    begin
+    lmin := a[i, 1];lmax := lmin;
+    for j := 2 to n do 
+        begin
+      if a[i, j] < lmin then lmin := a[i, j];
+      if a[i, j] > lmax then lmax := a[i, j];
+    end;
+    for j := 1 to n do   
+        begin
+      if a[i, j] = lmin then b[i, j] := b[i, j] - 3;
+      if a[i, j] = lmax then b[i, j] := b[i, j] + 1;
+            
+      if (b[i, j] = 2) or (b[i, j] = -6) or (b[i, j] = -4) then write(a[i, j], '  ') 
+      else write('*', '  ');
+    end;
+    writeln();
+  end;
 end;
 
 begin
   ReadMatrix();
-  magicbox(a);
+  SaddleFounding(a, b);
 end.
