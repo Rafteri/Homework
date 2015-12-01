@@ -10,7 +10,7 @@ begin
   while not eof(f) do
   begin
     read(f, c);
-    if not (((ord(c) > 31) and (ord(c) < 48)) or ((ord(c) > 57) and (ord(c) < 65))) 
+    if ((c >= 'a') and (c < 'z')) or ((c > 'A') and (c < 'Z')) 
     then
     begin
       i := i + 1;
