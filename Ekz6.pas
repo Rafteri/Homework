@@ -10,7 +10,7 @@ begin
   while not eof(f) do
   begin
     read(f, c);
-    if ((c >= 'a') and (c < 'z')) or ((c > 'A') and (c < 'Z')) 
+    if ((c >= 'a') and (c <= 'z')) or ((c >= 'A') and (c <= 'Z')) 
     then
     begin
       i := i + 1;
