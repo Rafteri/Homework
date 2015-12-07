@@ -1,4 +1,4 @@
-program M1;
+program TransMatrix;
 
 type
     matrix = array [1..3, 1..3] of integer;
