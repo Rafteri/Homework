@@ -1,4 +1,4 @@
-program task2;
+program A2;
 
 uses
   crt;
@@ -8,7 +8,7 @@ var
   n, i, first, k: integer;
 
 begin
-  write('Введите количество элементов:', ' ');
+  write('Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў:', ' ');
   read(n);
   setlength(a, n);
   for i := 0 to n - 1 do
@@ -31,6 +31,6 @@ begin
         break;
       end;
   end;
-  if k = -1 then writeln('Не периодична')
-  else writeln('Периодична с периодом:', ' ', k - 1 ); 
+  if k = -1 then writeln('ГЌГҐ ГЇГҐГ°ГЁГ®Г¤ГЁГ·Г­Г ')
+  else writeln('ГЏГҐГ°ГЁГ®Г¤ГЁГ·Г­Г  Г± ГЇГҐГ°ГЁГ®Г¤Г®Г¬:', ' ', k - 1 ); 
 end.
