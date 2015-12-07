@@ -1,4 +1,4 @@
-program Ekz6;
+program F1;
 
 procedure lmax_and_w(f: text);
 var
