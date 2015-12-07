@@ -1,4 +1,4 @@
-program Ekz7;
+program F2;
 
 var f: text;
     sum: integer;
