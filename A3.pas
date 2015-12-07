@@ -1,4 +1,4 @@
-program task3;
+program A3;
 
 uses
   crt;
@@ -37,7 +37,7 @@ var
   n, max, k, i: integer;
 
 begin
-  write('Введите колиество элементов:', ' ');
+  write('Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГҐГ±ГІГўГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў:', ' ');
   read(n);
   setlength(x, n);
   for i := 0 to n - 1 do
