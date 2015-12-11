@@ -1,10 +1,10 @@
-program Arrays;
+program OA2;
 
 uses 
   crt;
 
 var 
-  y, x: array of integer;  
+  y, x: array of real;  
   n, m, i, Ind: integer;
 
 function Index(x, y: array of integer): integer;
@@ -27,22 +27,22 @@ begin
 end;
 
 begin 
-  writeln('Введите длину массива'); 
+  writeln('Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г«ГЁГ­Гі Г¬Г Г±Г±ГЁГўГ '); 
   readln(n);  
   setlength(y, n); 
-  writeln('Введите элементы массива'); 
+  writeln('Г‚ГўГҐГ¤ГЁГІГҐ ГЅГ«ГҐГ¬ГҐГ­ГІГ» Г¬Г Г±Г±ГЁГўГ '); 
   for i := 0 to n - 1 do   
     readln(y[i]);  
   
-  writeln('Введите длину массива'); 
+  writeln('Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г«ГЁГ­Гі Г¬Г Г±Г±ГЁГўГ '); 
   readln(m);  
   setlength(x, m); 
-  writeln('Введите элементы массива'); 
+  writeln('Г‚ГўГҐГ¤ГЁГІГҐ ГЅГ«ГҐГ¬ГҐГ­ГІГ» Г¬Г Г±Г±ГЁГўГ '); 
   for i := 0 to m - 1 do
    readln(x[i]); 
   
   Ind := Index(y, x); 
-  if Ind <> -1 then writeln('Начинается с элемента: ', Ind)
+  if Ind <> -1 then writeln('ГЌГ Г·ГЁГ­Г ГҐГІГ±Гї Г± ГЅГ«ГҐГ¬ГҐГ­ГІГ : ', Ind)
   else writeln(Ind);
    readkey();   
 end.
