@@ -1,48 +1,43 @@
 program OA5;
 
-uses 
-  crt;
-
-var 
-  y, x: array of real;  
-  n, m, i, Ind: integer;
-
-function Index(x, y: array of integer): integer;
-var 
-  i, j, k: integer;
-begin 
-  k := -1; 
-  for i := 0 to n - 1 do   
-    if x[i] = y[0] then    
-    begin     
-      k := i + 1;      
-      for j := 1 to m - 1 do       
-        if x[i + j] <> y[j] then        
-        begin        
-          k := -1;        
-          break;        
-        end;     
-    end;  
-  Index := k;  
+type
+  massive = array of real;
+  
+var
+  a, b: massive;
+  n, m, i: integer;
+  
+procedure intersection(s1, s2: massive);
+var
+  i, k: integer;
+begin
+  k := 1;i := 1;
+  while (i < s1.Length) and (k < s2.length) do
+  begin
+    if s1[i] = s2[k] then 
+    begin
+      write(s1[i], ' ');
+      k := k + 1;i := i + 1;
+    end
+    else if s1[i] > s2[k] then k := k + 1
+    else i := i + 1;
+  end;
 end;
 
 begin 
-  writeln('Ââåäèòå äëèíó ìàññèâà'); 
-  readln(n);  
-  setlength(y, n); 
-  writeln('Ââåäèòå ýëåìåíòû ìàññèâà'); 
-  for i := 0 to n - 1 do   
-    readln(y[i]);  
+  writeln('Count of array elements');
+  readln(n);
+  setlength(a, n);
+  writeln('Elements of array');
+  for i := 0 to n - 1 do 
+    readln(a[i]);
   
-  writeln('Ââåäèòå äëèíó ìàññèâà'); 
-  readln(m);  
-  setlength(x, m); 
-  writeln('Ââåäèòå ýëåìåíòû ìàññèâà'); 
-  for i := 0 to m - 1 do
-   readln(x[i]); 
-  
-  Ind := Index(y, x); 
-  if Ind <> -1 then writeln('Íà÷èíàåòñÿ ñ ýëåìåíòà: ', Ind)
-  else writeln(Ind);
-   readkey();   
+  writeln('Count of array elements');
+  readln(m);
+  setlength(b, m);
+  writeln('Elements of array');
+  for i := 0 to m - 1 do 
+    readln(b[i]); 
+    
+  intersection(a,b);
 end.
