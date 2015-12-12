@@ -1,4 +1,4 @@
-program OA5;
+program Arrays;
 
 type
   massive = array of real;
