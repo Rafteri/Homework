@@ -1,4 +1,4 @@
-program OA2;
+program Arrays;
 
 uses 
   crt;
