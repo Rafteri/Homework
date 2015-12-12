@@ -1,4 +1,4 @@
-program OA5;
+program OA2;
 
 uses 
   crt;
