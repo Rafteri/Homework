@@ -14,7 +14,7 @@ begin
   j := 0;
   i := 0;
   k := 0;
-  while i < n do 
+  while (i < n) and (j < m) do 
   begin
     if x[i] = y[j] then 
     begin
@@ -29,6 +29,7 @@ begin
       i:= i + 1;
     end; 
   end;
+  
   if (j < m) then
   begin
     for i:= j to m - 1 do
@@ -36,6 +37,15 @@ begin
       k:= k + 1;
       setlength(a3, k);
       a3[k - 1] := y[i];
+    end;
+  end
+  else if (i < n) then
+  begin
+    for j:= i to n - 1 do
+    begin
+      k:= k + 1;
+      setlength(a3, k);
+      a3[k - 1] := x[i];
     end;
   end;
 end;
