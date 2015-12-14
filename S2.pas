@@ -32,19 +32,19 @@ begin
   case command of
     'add': 
     begin
-      Writeln('Enter element');
+      Writeln('Enter element   0 <= x <= ', nMax);
       readln(num);
       add(b, num);
     end;
     'delete':
     begin
-      Writeln('Enter element');
+      Writeln('Enter element   0 <= x <= ', nMax);
       readln(num);
       del(b, num);
     end;
     'check':
     begin
-      Writeln('Enter element');
+      Writeln('Enter element   0 <= x <= ', nMax);
       readln(num);
       writeln(check(b, num));
     end;
