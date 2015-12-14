@@ -1,41 +1,67 @@
 program S2;
 
-const nMax = 1000;
+const
+  nMax = 1000;
 
-type boolmass = array [1..nMax] of boolean;
+type
+  boolmass = array [1..nMax] of boolean;
 
-procedure reading(var command:string);
+procedure reading(var command: string; var num: integer);
 begin
-    writeln('Enter command. (add/delete/check)');
-    readln(command);
+  writeln('Enter command (add/delete/check) or "exit" for exit.');
+  readln(command);
 end;
+
 procedure add(var b: boolmass; num: integer);
 begin
-    a[num]:= true;
+  b[num] := true;
 end;
 
-procedure delete(var b:boolmass; num: integer)
+procedure del(var b: boolmass; num: integer);
 begin
-    a[num]:= false;
+  b[num] := false;
 end;
 
-function check(b:boolmass; num: integer):boolean;
+function check(b: boolmass; num: integer): boolean;
 begin
-    check:= a[num];
+  check := b[num];
 end;
 
-procedure do_command(command: string);
+procedure do_command(command: string; var b: boolmass; num: integer);
 begin
-    case commad of
-    'add':
-end;
-var b: boolmass; 
-    num, count: integer;
-    command:= string;
-    
-begin
-    while count = 1 do
+  case command of
+    'add': 
     begin
-        reading(command);
-        
+      Writeln('Enter element');
+      readln(num);
+      add(b, num);
+    end;
+    'delete':
+    begin
+      Writeln('Enter element');
+      readln(num);
+      del(b, num);
+    end;
+    'check':
+    begin
+      Writeln('Enter element');
+      readln(num);
+      writeln(check(b, num));
+    end;
+    'exit':;
+  else writeln('Incorrect command!');
+  end;
+end;
+
+var
+  b: boolmass; 
+  num: integer;
+  command: string;
+
+begin
+  while command <> 'exit' do
+  begin
+    reading(command, num);
+    do_command(command, b, num);
+  end;     
 end.
