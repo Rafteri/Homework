@@ -4,7 +4,7 @@ const
   nMax = 1000;
 
 type
-  boolmass = array [1..nMax] of boolean;
+  my_set = array [1..nMax] of boolean;
 
 procedure reading(var command: string; var num: integer);
 begin
@@ -12,22 +12,22 @@ begin
   readln(command);
 end;
 
-procedure add(var b: boolmass; num: integer);
+procedure add(var b: my_set; num: integer);
 begin
   b[num] := true;
 end;
 
-procedure del(var b: boolmass; num: integer);
+procedure del(var b: my_set; num: integer);
 begin
   b[num] := false;
 end;
 
-function check(b: boolmass; num: integer): boolean;
+function check(b: my_set; num: integer): boolean;
 begin
   check := b[num];
 end;
 
-procedure do_command(command: string; var b: boolmass; num: integer);
+procedure do_command(command: string; var b: my_set; num: integer);
 begin
   case command of
     'add': 
@@ -54,7 +54,7 @@ begin
 end;
 
 var
-  b: boolmass; 
+  b: my_set; 
   num: integer;
   command: string;
 
