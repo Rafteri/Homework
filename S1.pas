@@ -1,21 +1,46 @@
 program S1;
 
-var
-  n, i, k: integer; 
-  a: array[1..100000000] of integer;
+const
+  N = 1000000000;
 
+type
+  mass_bool = array [1..N] of boolean;
+
+procedure sieve_of_eratosthenes(var b: mass_bool; max: integer);
+var
+  i, k: integer;
 begin
-  readln(n);
-  for i := 2 to (n + 1) div 2 do 
+  for i := 2 to (max + 1) div 2 do 
   begin
     k := i * 2;
-    while k <= n do 
+    while k <= max do 
     begin
-      a[k] := 1;
+      b[k] := true;
       k := k + i;
     end;
     k := 0;
   end;
-  for i := 1 to n do
-    if a[i] = 0 then write(i, ' ');
+end;
+
+procedure output(b: mass_bool; max: integer);
+var
+  i: integer;
+begin
+  for i := 1 to max do
+  begin
+    if b[i] = false then
+    begin
+      write(i, ' ');
+    end;
+  end;
+end;
+
+var
+  max: integer;
+  b: mass_bool;
+
+begin
+  readln(max);
+  sieve_of_eratosthenes(b, max);
+  output(b, max);
 end.
