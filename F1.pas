@@ -24,6 +24,7 @@ begin
         lmax := i;
         i := 0;
         w := s;
+        s := '';
       end
       else
       begin
