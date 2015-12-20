@@ -19,7 +19,7 @@ end;
 
 function belong(points: fpoints; coeff: coefficients): boolean;
 begin
-  belong := (points.r * sin((180 / pi) * points.phi) = coeff.k * points.r * cos((180 / pi) * points.phi) + coeff.b);
+  belong := (points.r * sin((pi / 180) * points.phi) = coeff.k * points.r * cos((pi / 180) * points.phi) + coeff.b);
 end;
 
 procedure output(belonging: boolean);

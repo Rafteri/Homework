@@ -30,7 +30,7 @@ begin
   write(enrol.name);
   if enrol.medal then
   begin
-    write(' есть медаль ');
+    write(' has medal ');
   end;
   for i := 1 to 3 do
   begin
@@ -45,7 +45,7 @@ var
   enrol: enrollee;
 
 begin
-  assign(f, 'Enrollees.txt');
+  assign(f, 'Input.txt');
   reset(f);
   while not eof(f) do
   begin
