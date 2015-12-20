@@ -7,29 +7,29 @@ var
 function inclusion(x, y: text): boolean;
 
 var
-  c1, c2: char;
-  b: boolean;
+  a, b: integer;
+  include: boolean;
 
 begin
-  read(x, c1);
-  read(y, c2);
+  read(x, a);
+  read(y, b);
   while (not eof(x)) and (not eof(y)) do
   begin
-    if (c1 = c2) then
+    if (a = b) then
     begin
-      read(x, c1);
-      read(y, c2);
+      read(x, a);
+      read(y, b);
       if eof(y) then
       begin
-        b := true;
+        include := true;
       end;
     end
     else
     begin
-      read(x, c1);
+      read(x, a);
     end;
   end;
-  inclusion := b; 
+  inclusion := include; 
 end;
 
 begin

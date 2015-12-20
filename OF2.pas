@@ -1,72 +1,103 @@
 program OF2;
 
-
 var
   f1, f2, f3: text;
 
 procedure integration(x, y: text; var z: text);
 
 var
-  c1, c2: char;
-  k : integer;
+  a, b: integer;
+  k: integer;
 
 begin
-  read(x, c1);
-  read(y, c2);
+  read(x, a);
+  read(y, b);
   while (not eof(x)) and (not eof(y)) do
   begin
-    k:= 0;
-    if (c1 = c2) then
+    k := 0;
+    if (a = b) then
     begin
-      write(z, c1, c2);
-      read(x, c1);
-      read(y, c2);
+      write(z, a, ' ', b, ' ');
+      read(x, a);
+      read(y, b);
       k := 1;
     end
-    else if (c1 < c2) then
+    else if (a < b) then
     begin
-      write(z, c1);
-      read(x, c1);
+      write(z, a, ' ');
+      read(x, a);
       K := 2;
     end
     else
     begin
-      write(z, c2);
-      read(y, c2);
+      write(z, b, ' ');
+      read(y, b);
       k := 3;
     end;
   end;
   
   if (k = 1) then    // Gigant crutch
   begin
-    if c1 < c2 then
-    write(z, c1, c2)
+    if a < b then
+      write(z, a, ' ', b, ' ')
     else
-    write(z, c2, c1);
+      write(z, b, ' ', a, ' ');
   end
-  else if (k = 2)then
+  else if (k = 2) then
   begin
-    write(z, c1);
+    if a < b then 
+    begin
+      write(z, a, ' ');
+    end
+    else
+      while not eof(y) do
+      begin
+        if a > b then
+        begin
+          write(z, b, ' ');
+          read(y, b);
+        end
+        else 
+        begin
+          write(z, a, ' ', b, ' ')
+        end;
+      end;
   end
-  else if k = 3 then
+  else if (k = 3) then
   begin
-    write(z, c2);
+    if b < a then 
+    begin
+      write(z, b, ' ');
+    end
+    else
+      while not eof(x) do
+      begin
+        if b > a then
+        begin
+          write(z, a, ' ');
+          read(x, a);
+        end
+        else 
+        begin
+          write(z, b, ' ', a, ' ')
+        end;
+      end;
   end;
   
   if not eof(x) then 
   begin
     while not eof(x) do
     begin
-      read(x, c1);
-      write(z, c1);
+      read(x, a);
+      write(z, b, ' ');
     end;
   end
   else if not eof(y) then
   begin
     while not eof(y) do
     begin
-      read(y, c2);
-      write(z, c2);
+      read(y, b);
+      write(z, b, ' ');
     end;
   end;
 end;
