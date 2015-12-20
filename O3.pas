@@ -8,7 +8,28 @@ type
 
 var
   a: arr_int;
+
+procedure read_arr(var a: arr_int);
+var
   i: integer;
+begin
+  writeln('Enter elements of array:');
+  for i := 1 to N do
+  begin
+    readln(a[i]);
+  end;
+end;
+
+procedure write_arr(var a: arr_int);
+var
+  i: integer;
+begin
+  writeln('Sorted elements of array:');
+  for i := 1 to N do
+  begin
+    writeln(a[i]);
+  end;
+end;
 
 procedure inclusion_sort(var a: arr_int);
 var
@@ -28,9 +49,7 @@ begin
 end;
 
 begin
-  for i := 1 to N do
-  begin
-    readln(a[i]);
-  end;
+  read_arr(a);
   inclusion_sort(a);
+  write_arr(a);
 end.
