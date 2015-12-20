@@ -1,7 +1,7 @@
 program M2;
 
 const
-  n = 2;
+  n = 3;
 
 type
   matrix = array[1..n, 1..n] of integer;
