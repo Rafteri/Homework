@@ -36,20 +36,21 @@ end;
 
 procedure belongs(coeff: coefficients);
 var
-  f1: text;
+  f: text;
   points: fpoints;
   belonging: boolean;
 
 begin
   belonging := true;
-  assign(f1, 'Points.txt');
-  reset(f1);
-  while not eof(f1) and belonging do
+  assign(f, 'Points.txt');
+  reset(f);
+  while not eof(f) and belonging do
   begin
-    read(f1, points.r, points.phi);
+    read(f, points.r, points.phi);
     belonging := belong(points, coeff);
   end;
   output(belonging);
+  close(f);
 end;
 
 var
