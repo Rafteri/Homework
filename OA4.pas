@@ -4,8 +4,28 @@ type
   massive = array of real;
 
 var
-  n, m, i: integer;
+  n, m: integer;
   a1, a2, a3: massive;
+
+
+procedure read_arr(var x, y: massive; var n, m: integer);
+var
+  i: integer;
+begin
+  writeln('Count of array elements');
+  readln(n);
+  setlength(x, n);
+  writeln('Elements of array');
+  for i := 0 to n - 1 do 
+    readln(x[i]);
+  
+  writeln('Count of array elements');
+  readln(m);
+  setlength(y, m);
+  writeln('Elements of array');
+  for i := 0 to m - 1 do 
+    readln(y[i]);  
+end;
 
 procedure association(x: massive; n: integer; y: massive; m: integer; var z: massive);
 
@@ -53,20 +73,18 @@ begin
   end;
 end;
 
+procedure output_association(a3: massive);
+var i:integer;
 begin
-  writeln('Count of array elements');
-  readln(n);
-  setlength(a1, n);
-  writeln('Elements of array');
-  for i := 0 to n - 1 do 
-    readln(a1[i]);
-  
-  writeln('Count of array elements');
-  readln(m);
-  setlength(a2, m);
-  writeln('Elements of array');
-  for i := 0 to m - 1 do 
-    readln(a2[i]);  
+  writeln('Association:');
+  for i:= 0 to length(a3) - 1 do
+  begin
+    writeln(a3[i]);
+  end;
+end;
+
+begin
+  read_arr(a1, a2, n, m);  
   
   if (a1[n - 1] < a2[m - 1]) then
   begin
@@ -76,4 +94,6 @@ begin
   begin
     association(a2, m, a1, n, a3);
   end;
+  
+  output_association(a3);
 end.

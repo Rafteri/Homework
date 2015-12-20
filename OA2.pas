@@ -1,9 +1,30 @@
 program OA2;
 
-type massive = array of real;
+type
+  massive = array of real;
 
-var n, m, i: integer;
-    x, y: massive;
+var
+  n, m, i: integer;
+  x, y: massive;
+
+procedure read_arr(var x, y: massive; var n, m: integer);
+var
+  i: integer;
+begin
+  writeln('Count of array elements');
+  readln(n);
+  setlength(x, n);
+  writeln('Elements of array');
+  for i := 0 to n - 1 do 
+    readln(x[i]);
+  
+  writeln('Count of array elements');
+  readln(m);
+  setlength(y, m);
+  writeln('Elements of array');
+  for i := 0 to m - 1 do 
+    readln(y[i]);  
+end;
 
 function inclusion(x, y: massive): boolean;
 
@@ -22,7 +43,7 @@ begin
       j := j + 1;
       if j = m - 1 then 
       begin
-        b:= true;
+        b := true;
         i := n;
       end; 
     end 
@@ -36,19 +57,6 @@ begin
 end;
 
 begin
-  writeln('Count of array elements');
-  readln(n);
-  setlength(x, n);
-  writeln('Elements of array');
-  for i := 0 to n - 1 do 
-    readln(x[i]);
-  
-  writeln('Count of array elements');
-  readln(m);
-  setlength(y, m);
-  writeln('Elements of array');
-  for i := 0 to m - 1 do 
-    readln(y[i]);  
-  
+  read_arr(x, y, n, m);
   writeln(inclusion(x, y));   
 end.

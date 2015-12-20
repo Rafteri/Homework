@@ -5,18 +5,38 @@ type
   
 var
   a, b: massive;
-  n, m, i: integer;
+  n, m: integer;
+
+procedure read_arr(var x, y: massive; var n, m: integer);
+var
+  i: integer;
+begin
+  writeln('Count of array elements');
+  readln(n);
+  setlength(x, n);
+  writeln('Elements of array');
+  for i := 0 to n - 1 do 
+    readln(x[i]);
+  
+  writeln('Count of array elements');
+  readln(m);
+  setlength(y, m);
+  writeln('Elements of array');
+  for i := 0 to m - 1 do 
+    readln(y[i]);  
+end;
   
 procedure intersection(s1, s2: massive);
 var
   i, k: integer;
 begin
+  writeln('Intersection:');
   k := 1;i := 1;
   while (i < s1.Length) and (k < s2.length) do
   begin
     if s1[i] = s2[k] then 
     begin
-      write(s1[i], ' ');
+      writeln(s1[i]);
       k := k + 1;i := i + 1;
     end
     else if s1[i] > s2[k] then k := k + 1
@@ -25,19 +45,7 @@ begin
 end;
 
 begin 
-  writeln('Count of array elements');
-  readln(n);
-  setlength(a, n);
-  writeln('Elements of array');
-  for i := 0 to n - 1 do 
-    readln(a[i]);
-  
-  writeln('Count of array elements');
-  readln(m);
-  setlength(b, m);
-  writeln('Elements of array');
-  for i := 0 to m - 1 do 
-    readln(b[i]); 
+  read_arr(a, b, n, m); 
     
   intersection(a,b);
 end.
