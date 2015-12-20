@@ -1,11 +1,8 @@
-program A3;
+﻿program A3;
 
-uses
-  crt;
-
+function longest_step(): integer;
 var
   n, a, max, k: integer;
-
 begin
   read(a);
   n := a;
@@ -21,37 +18,9 @@ begin
     end;
     n := a;
   end;
-  writeln(max);
-  
-end.
-
-
-{
-program task3;
-
-uses
-  crt;
-
-var
-  x: array of integer;
-  n, max, k, i: integer;
+  longest_step := max;
+end;
 
 begin
-  write('Ââåäèòå êîëèåñòâî ýëåìåíòîâ:', ' ');
-  read(n);
-  setlength(x, n);
-  for i := 0 to n - 1 do
-    readln(x[i]);
-  max := 0;
-  k := 1;
-  for i := 0 to n - 2 do
-    if x[i] < x[i + 1]  
-      then k := k + 1 
-    else begin
-      if max < k then max := k; 
-      k := 1; 
-    end;
-  writeln(max);
-  
+  writeln(longest_step());
 end.
-}
